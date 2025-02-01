@@ -21,7 +21,7 @@ class BPE:
         umap={}
         for word in words:
             if word in umap:
-                umap[word]+=1
+                umap[word]+= 1
             else:
                 umap[word]=1
         
