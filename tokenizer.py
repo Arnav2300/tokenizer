@@ -23,7 +23,7 @@ class BPE:
             if word in umap:
                 umap[word]+= 1
             else:
-                umap[word]=1
+                umap[word]= 1
         
         corpus=Corpus([(word,umap[word]) for word in umap.keys()])
         return corpus
