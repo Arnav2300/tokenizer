@@ -1,3 +1,3 @@
 from .corpus import Corpus
 
-__all__=["Corpus"]
+__all__ = ["Corpus"]
