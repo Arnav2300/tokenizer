@@ -1,10 +1,12 @@
+from custom_types import Corpus
+
 class TargetVocabularySizeError(Exception):
     def __init__(self,message):
         super().__init__(message)
 
 class BPE:
     """Byte pair encoding tokenizer"""
-    def calculate_frequency(self,words:list[str])->list[tuple]:
+    def calculate_frequency(self,words:list[str])->Corpus:
         """
             Calculates the frequency of each word in a list of words provided.
            
@@ -23,7 +25,7 @@ class BPE:
             else:
                 umap[word]=1
         
-        corpus=[(word,umap[word]) for word in umap.keys()]
+        corpus=Corpus([(word,umap[word]) for word in umap.keys()])
         return corpus
 
     def create_vocabulary(self,words:list[str])->list:
@@ -37,6 +39,9 @@ class BPE:
                     vocabulary (list), a list of characters used in the list of words provided.
         """
         return list(set("".join(words)))
+    
+    def count_pair_frequencies(self):
+        pass
 if __name__=="__main__":
     abc=["apple","mango","banana","banana","banana","banana","mango","mango"]
     tokenizer=BPE()
