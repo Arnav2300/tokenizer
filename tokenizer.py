@@ -25,7 +25,7 @@ class BPE:
             else:
                 umap[word]= 1
         
-        corpus=Corpus([(word,umap[word]) for word in umap.keys()])
+        corpus=Corpus([(word, umap[word]) for word in umap.keys()])
         return corpus
 
     def create_vocabulary(self,words:list[str])->list:
