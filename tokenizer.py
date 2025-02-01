@@ -43,12 +43,23 @@ class BPE:
         """
         return list(set("".join(words)))
 
-    def count_pair_frequencies(self):
-        pass
+    def count_pair_frequencies(self,corpus:Corpus)->dict:
+        pair_frequency_dict={}
+        
+        for word,frequency in corpus:
+            for i in range(len(word)-1):
+                char_pair=f"{word[i]}{word[i+1]}"
+                if char_pair not in pair_frequency_dict:
+                    pair_frequency_dict[char_pair]=frequency
+                else:
+                    pair_frequency_dict[char_pair]+=frequency
+        return pair_frequency_dict
+
 
 
 if __name__ == "__main__":
     abc = ["apple", "mango", "banana", "banana", "banana", "banana", "mango", "mango"]
     tokenizer = BPE()
-    print(tokenizer.calculate_frequency(abc))
+    corpus=tokenizer.calculate_frequency(abc)
     print(tokenizer.create_vocabulary(abc))
+    print(tokenizer.count_pair_frequencies(corpus))

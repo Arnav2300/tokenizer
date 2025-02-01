@@ -23,6 +23,10 @@ class Corpus:
                 return freq
         return 0  # Return 0 if the word is not found
 
+    def __iter__(self):
+        for item in self.data:
+            yield item
+
     def __repr__(self):
         return f"Corpus({self.data})"
 
