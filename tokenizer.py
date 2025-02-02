@@ -43,7 +43,15 @@ class BPE:
         """
         return list(set("".join(words)))
 
-    def count_pair_frequencies(self, corpus: Corpus) -> dict:
+    def find_pair_frequencies(self, corpus: Corpus) -> dict:
+        """
+        Finds the frequency of pairs of characters in the corpus and returns a dict.
+
+        Args:
+            (list[tuple(str, int)]): A list of tuples where the first element is a string of a word in the word list and the second element is an integer representing the frequency of the word in the list.
+        Returns:
+            dict of pair frequencies
+        """
         pair_frequency_dict = {}
 
         for word, frequency in corpus:
